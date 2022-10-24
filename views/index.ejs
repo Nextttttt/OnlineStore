@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Store</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="#"><img src="/images/logo-128.png" height="50" width="50" alt=""></a>
+      <span class="mr-0 navbar-text">
+        <%for(var i = 0; i < categories.length; i++){%>
+          <span id="<%= categories[i].id %>" class="btn-menu"><%= categories[i].name%></span>|
+          <%}%>
+      </span>
+    </nav>
+
+    <header>
+      <div class="p-5 text-center bg-light text-muted">
+        <h1 class="mb-3">Online Store</h1>
+      </div>
+    </header>
+
+    <div>
+
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <aside class="col col-lg-3 filter-menu mt-4">
+          <div>
+            <div class="d-flex justify-content-between">
+              <h5 class="d-inline">Filter By Color</h5>
+              <span class="btn-collapse" data-toggle="collapse" data-target="#Filter1" aria-expanded="false" aria-controls="Filter1"><i class="fa fa-sort-down fa-lg d-inline-block"></i></span>
+            </div>
+            <hr>
+            <div data-filtered="<%= filter %>" id="Filter1" class="filter-list collapse show">
+              <label for="BlackCheck" id="Black" class="filter-box">Black
+                <input id="BlackCheck" type="checkbox">
+                <span class="custome-check"></span>
+              </label>
+              <label for="GreyCheck" id="Grey" class="filter-box">Grey
+                <input id="GreyCheck" type="checkbox">
+                <span class="custome-check"></span>
+              </label>
+              <label for="NavyCheck" id="Navy" class="filter-box">Navy
+                <input id="NavyCheck" type="checkbox">
+                <span class="custome-check"></span>
+              </label>
+              <label for="CharcoalCheck" id="Charcoal" class="filter-box">Charcoal
+                <input id="CharcoalCheck" type="checkbox">
+                <span class="custome-check"></span>
+              </label>
+              <label for="BlueCheck" id="Blue" class="filter-box">Blue
+                <input id="BlueCheck" type="checkbox">
+                <span class="custome-check"></span>
+              </label>
+              <label for="WhiteCheck" id="White" class="filter-box">White
+                <input id="WhiteCheck" type="checkbox">
+                <span class="custome-check"></span>
+              </label>
+            </div>
+          </div>
+          <div>
+            <div class="d-flex justify-content-between">
+              <h5 class="d-inline">Filter 2</h5>
+              <span class="btn-collapse" data-toggle="collapse" data-target="#Filter2" aria-expanded="false" aria-controls="Filter2"><i class="fa fa-sort-down fa-lg d-inline-block"></i></span>
+            </div>
+            <hr>
+            <div id="Filter2" class="filter-list collapse show">
+              <label class="filter-box">One
+                <input type="checkbox">
+                <span class="custome-check"></span>
+              </label>
+              <label class="filter-box">One
+                <input type="checkbox">
+                <span class="custome-check"></span>
+              </label>
+              <label class="filter-box">One
+                <input type="checkbox">
+                <span class="custome-check"></span>
+              </label>
+              <label class="filter-box">One
+                <input type="checkbox">
+                <span class="custome-check"></span>
+              </label>
+              <label class="filter-box">One
+                <input type="checkbox">
+                <span class="custome-check"></span>
+              </label>
+              <label class="filter-box">One
+                <input type="checkbox">
+                <span class="custome-check"></span>
+              </label>
+            </div>
+          <hr>
+
+          </div>
+          <div>
+            <h5>Price</h5>
+            <label for="customRange1" class="form-label">Example range</label>
+            <input type="range" class="form-range" id="customRange1">
+          </div>
+        </aside>
+        <div id="ProductListContainer" class="d-inline-flex justify-content-between flex-wrap col-lg-9">
+          <% for(var i=0; i < products.length; i++){%>
+            <div class="d-inline-flex flex-column product-card text-muted">
+              <img class="product-image" src="/images/<%= products[i].image_groups[0].images[0].link %>" alt="<%= products[i].image_groups[0].images[0].alt %>">
+              <h3 class="product-heading"><%= products[i].name %></h3>
+              <div class="flex flex-row">
+                <%if(products[i].c_isSale == true && products[i].price_max){%>
+                  <del class="d-inline"><span class="product-price">$<%= products[i].price_max %></span></del>
+                <%}%>
+                  <span class="product-price">$<%= products[i].price %></span>
+              </div>
+            </div>
+          <%}%>
+        </div>
+      </div>
+    </div>
+    <footer class="text-center text-lg-start">
+      <div class="text-center p-3">
+        ©
+        <a class="text-dark" href="">ForkPoint Ltd.</a>
+      </div>
+    </footer>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $(".btn-menu").click(function () { 
+        var ctgr = $(this).attr("id");
+        window.location.href = "/category/" + ctgr;
+      });
+    });
+  </script>
+  </html>

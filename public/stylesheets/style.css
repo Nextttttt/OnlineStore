@@ -1,0 +1,105 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.filter-box {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.filter-box input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.custome-check {
+  border: 1px solid #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #fff;
+}
+
+.custome-check:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.filter-box input:checked ~ .custome-check:after {
+  display: block;
+}
+
+.filter-box .custome-check:after {
+  left: 5px;
+  bottom: 2px;
+  width: 6px;
+  height: 15px;
+  border: solid #000;
+  border-width: 0 1px 1px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+/*------------------------------------------------------*/
+input[type="range"]
+{
+  accent-color: #eee;
+}
+.filter-menu{
+  border-right: 1px solid #eee;
+}
+footer{
+  border-top: 1px solid #eee;
+  padding-top: 0px;
+}
+header{
+  border-bottom: 2px solid #eee;
+}
+
+.product-card{
+  margin-right: 50px;
+  margin-top: 60px;
+  max-width: 400px;
+}
+
+.product-image{
+  border: 1px solid #6c757d;
+  min-width: 300px;
+  max-width: 400px;
+  max-height: 400px;
+  min-height: 100px;
+  object-fit:contain;
+  margin-bottom: 10px;
+}
+.btn-collapse{
+ width: 25px;
+ height: 25px;
+}
+
+.product-price{
+  font-size: 20px;
+  display: inline;
+}
+
+.product-heading{
+  font-size: 20px;
+  overflow-wrap: break-word;
+}
